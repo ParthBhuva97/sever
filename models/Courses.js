@@ -1,31 +1,31 @@
 const mongoose = require("mongoose");
 
 const courseSchema = mongoose.Schema({
-  1: {
+  sem_1: {
     type: Array,
   },
-  2: {
+  sem_2: {
     type: Array,
   },
-  3: {
+  sem_3: {
     type: Array,
   },
-  4: {
+  sem_4: {
     type: Array,
   },
-  5: {
+  sem_5: {
     type: Array,
   },
-  6: {
+  sem_6: {
     type: Array,
   },
-  7: {
+  sem_7: {
     type: Array,
   },
-  8: {
+  sem_8: {
     type: Array,
   },
 });
 
-const Course = mongoose.model('Sem', courseSchema);
+const Course = mongoose.model("Sem", courseSchema);
 module.exports = Course;
