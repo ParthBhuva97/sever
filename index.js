@@ -4,6 +4,7 @@ const cors = require("cors");
 const app = express();
 
 const Student = require("./models/Student");
+const Course = require("./models/Courses");
 
 app.use(express.json());
 app.use(cors());
@@ -19,14 +20,21 @@ mongoose.connect(
 app.get('/', function(req, res){
   res.json({"hello":"world"});
 })
-app.get('/read', async (req, res) => {
+app.get('/getStudents', async (req, res) => {
   Student.find({},(err,result) => {
     if(err) throw err;
     res.json(result);
   })
 });
 
-app.post("/add", async (req, res) => {
+app.get('/getSem', async (req,res)=>{
+  Course.find({},(err,result)=>{
+    if(err) throw err;
+    res.json(result);
+  })
+});
+
+app.post("/addStudent", async (req, res) => {
     const name = req.body.name;
     const course = req.body.course;
     const sem = req.body.sem;
