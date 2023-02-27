@@ -17,6 +17,11 @@ mongoose.connect(
   }
 );
 
+app.use((req, res, next) => {
+  res.header('Access-Control-Allow-Origin', '*');
+  next();
+});
+
 app.get('/', function(req, res){
   res.json({"hello":"world"});
 })
